@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="thirdScreen"
+            type="jsy.stock.stocktradinghelper.stock.fragment.ThirdScreen"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_third_to_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3->1"
+            android:onClick="@{()->thirdScreen.btnThirdToFirst()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_third_to_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3->2"
+            android:onClick="@{()->thirdScreen.btnThirdToSecond()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_third_to_first"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
