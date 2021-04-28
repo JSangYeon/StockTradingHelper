@@ -11,9 +11,15 @@
         tools:layout="@layout/fragment_first_screen">
 
         <action android:id="@+id/action_first_screen_to_second_screen"
-            app:destination="@id/second_screen"/>
+            app:destination="@id/third_screen"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
         <action android:id="@+id/action_first_screen_to_third_screen"
-            app:destination="@id/third_screen"/>
+            app:destination="@id/third_screen"
+            app:popUpTo="@id/third_screen"/>
 
     </fragment>
 
@@ -25,9 +31,11 @@
 
 
         <action android:id="@+id/action_second_screen_to_first_screen"
-            app:destination="@id/first_screen"/>
+            app:destination="@id/first_screen"
+            app:popUpTo="@id/first_screen"/>
         <action android:id="@+id/action_second_screen_to_third_screen"
-            app:destination="@id/third_screen"/>
+            app:destination="@id/third_screen"
+            app:popUpTo="@id/third_screen"/>
     </fragment>
 
     <fragment
@@ -37,9 +45,11 @@
         tools:layout="@layout/fragment_third_screen">
 
         <action android:id="@+id/action_third_screen_to_first_screen"
-            app:destination="@id/first_screen"/>
+            app:destination="@id/first_screen"
+            app:popUpTo="@id/first_screen"/>
         <action android:id="@+id/action_third_screen_to_second_screen"
-            app:destination="@id/second_screen"/>
+            app:destination="@id/second_screen"
+            app:popUpTo="@id/second_screen"/>
     </fragment>
 
 </navigation>

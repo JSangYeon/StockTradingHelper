@@ -20,5 +20,5 @@ interface StockDao {
     fun insert(stock: Stock) : Completable
 
     @Query("DELETE from cat")
-    fun deleteAll()
+    fun deleteAll() : Completable
 }

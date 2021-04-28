@@ -28,10 +28,10 @@ abstract class BaseFragment<B : ViewDataBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-        init()
+        binding.init()
     }
 
-    abstract fun init()
+    abstract fun B.init()
 
     protected fun showToast(msg: String) =
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()

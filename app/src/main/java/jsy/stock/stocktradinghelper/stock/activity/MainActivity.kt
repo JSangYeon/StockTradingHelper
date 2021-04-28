@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -15,6 +16,7 @@ import jsy.stock.stocktradinghelper.base.BaseActivity
 import jsy.stock.stocktradinghelper.databinding.ActivityMainBinding
 import jsy.stock.stocktradinghelper.room.Stock
 import jsy.stock.stocktradinghelper.room.StockDB
+import jsy.stock.stocktradinghelper.stock.adapter.MainViewPagerAdapter
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
 
@@ -48,20 +50,33 @@ class MainActivity :  BaseActivity<ActivityMainBinding>(R.layout.activity_main) 
 
         val stockDB = StockDB.getInstance(this)!!
 
-
         val newStock = Stock()
         newStock.stockName = "jsy"
         newStock.lifeSpan = 12345
         newStock.origin = "text"
 
+        val newStock1 = Stock()
+        newStock1.stockName = "jsy1"
+        newStock1.lifeSpan = 123451
+        newStock1.origin = "text1"
 
         disposable.add(
-            stockDB.stockDao().insert(newStock)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ Log.d("stock", "success") },
-                    { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+                stockDB.stockDao().insert(newStock)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ Log.d("stock", "success") },
+                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
+        disposable.add(
+                stockDB.stockDao().insert(newStock1)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ Log.d("stock", "success") },
+                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+        )
+
+
+        initTab()
 
     }
 
@@ -69,35 +84,21 @@ class MainActivity :  BaseActivity<ActivityMainBinding>(R.layout.activity_main) 
 
     private fun initTab()
     {
-
+        val pager = binding.pager
+        val tlStock = binding.tlStock
         val tabs : Array<String> = resources.getStringArray(R.array.list_tab)
 
-        if (binding.tlStock.tabCount == 0) {
-            for (i in tabs.indices) {
-                val item = TabItem(this)
-                val layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                binding.tlStock.addView(item, layoutParams)
-            }
+        pager.run {
+            adapter = MainViewPagerAdapter(this@MainActivity)
+            isUserInputEnabled = false
+            offscreenPageLimit = tabs.size
         }
 
-//        for (i in tabs.indices) {
-//            val temp: TabLayout.Tab = binding.tablayout.getTabAt(i)
-//            if (temp != null) {
-//                temp.setText(tabs.get(i))
-//            }
-//        }
-//
-//        tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener() {
-//            fun onTabSelected(tab: CustomTabLayout.Tab) {
-//                Toast.makeText(this@MainActivity, tab.getText(), Toast.LENGTH_SHORT).show()
-//            }
-//
-//            fun onTabUnselected(tab: CustomTabLayout.Tab?) {}
-//            fun onTabReselected(tab: CustomTabLayout.Tab?) {}
-//        })
+        TabLayoutMediator(tlStock, pager) { tab, position ->
+            tab.text = tabs[position]
+        }.attach()
+
+
     }
 
 

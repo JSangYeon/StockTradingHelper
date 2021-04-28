@@ -4,6 +4,7 @@
     <string name="price">단가</string>
     <string name="bullish_market">상승장</string>
     <string name="bearish_market">하락장</string>
+    <string name="account_balance">계좌 잔고</string>
     
     <string-array name="list_tab">
         <item>잔고</item>

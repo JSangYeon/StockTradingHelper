@@ -12,17 +12,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/tv_hello"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/account_balance"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="hello"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{()->myStock.btnClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/account_balance"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_stock_account_balance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/account_balance"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

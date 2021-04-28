@@ -6,7 +6,7 @@ import jsy.stock.stocktradinghelper.databinding.FragmentStockPurchaseBinding
 
 class StockPurchaseFragment: BaseFragment<FragmentStockPurchaseBinding>(R.layout.fragment_stock_purchase) {
 
-    override fun init() {
+    override fun FragmentStockPurchaseBinding.init() {
 
     }
 
