@@ -1,7 +1,10 @@
 package jsy.stock.stocktradinghelper.stock.fragment
 
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -9,20 +12,25 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseFragment
-import jsy.stock.stocktradinghelper.databinding.FragmentMyStockBinding
+import jsy.stock.stocktradinghelper.databinding.FragmentFirstScreenBinding
 import jsy.stock.stocktradinghelper.room.StockDB
 import jsy.stock.stocktradinghelper.stock.adapter.StockAccountBalanceAdapter
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
-class MyStockFragment : BaseFragment<FragmentMyStockBinding>(R.layout.fragment_my_stock) {
+class MyStockBalance : BaseFragment<FragmentFirstScreenBinding>(R.layout.fragment_first_screen) {
 
-    private val stockViewModel: StockViewModel by activityViewModels()
+    private val _stockViewModel: StockViewModel by activityViewModels()
     private val disposable = CompositeDisposable()
 
-    override fun FragmentMyStockBinding.init() {
-        myStock = this@MyStockFragment
 
-        val stockAdapter = StockAccountBalanceAdapter(stockViewModel)
+    override fun FragmentFirstScreenBinding.init() {
+
+
+        firstScreen = this@MyStockBalance
+
+
+
+        val stockAdapter = StockAccountBalanceAdapter(_stockViewModel)
 
         val stockDB = StockDB.getInstance(requireContext())!!
 
@@ -44,16 +52,26 @@ class MyStockFragment : BaseFragment<FragmentMyStockBinding>(R.layout.fragment_m
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({
-                            stockViewModel.setStockList(it)
+                            _stockViewModel.setStockList(it)
                             rvStockAccountBalance.adapter?.notifyDataSetChanged()
                         },
                                 { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
 
 
+
     }
 
-    fun btnClick() {
-        TODO("네비게이션 구현 필요")
+
+    fun btnFirstToSecond()
+    {
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_second_screen) }
     }
+
+    fun btnFirstToThird()
+    {
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_third_screen) }
+    }
+
+
 }

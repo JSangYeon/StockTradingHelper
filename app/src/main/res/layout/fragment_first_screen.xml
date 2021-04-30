@@ -5,7 +5,7 @@
     <data>
         <variable
             name="firstScreen"
-            type="jsy.stock.stocktradinghelper.stock.fragment.FirstScreen"/>
+            type="jsy.stock.stocktradinghelper.stock.fragment.MyStockBalance"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,6 +29,22 @@
             android:onClick="@{()->firstScreen.btnFirstToThird()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_first_to_second"/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_stock_account_balance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_first_to_third"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
