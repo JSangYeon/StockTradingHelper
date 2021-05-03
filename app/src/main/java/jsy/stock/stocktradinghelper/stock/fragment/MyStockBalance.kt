@@ -13,6 +13,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseFragment
 import jsy.stock.stocktradinghelper.databinding.FragmentFirstScreenBinding
+import jsy.stock.stocktradinghelper.function.whenNotNull
 import jsy.stock.stocktradinghelper.room.StockDB
 import jsy.stock.stocktradinghelper.stock.adapter.StockAccountBalanceAdapter
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
@@ -25,10 +26,7 @@ class MyStockBalance : BaseFragment<FragmentFirstScreenBinding>(R.layout.fragmen
 
     override fun FragmentFirstScreenBinding.init() {
 
-
         firstScreen = this@MyStockBalance
-
-
 
         val stockAdapter = StockAccountBalanceAdapter(_stockViewModel)
 
@@ -47,6 +45,7 @@ class MyStockBalance : BaseFragment<FragmentFirstScreenBinding>(R.layout.fragmen
             adapter = stockAdapter
         }
 
+
         disposable.add(
                 stockDB.stockDao().getAll()
                         .subscribeOn(Schedulers.io())
@@ -58,9 +57,7 @@ class MyStockBalance : BaseFragment<FragmentFirstScreenBinding>(R.layout.fragmen
                                 { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
 
-
-
-    }
+   }
 
 
     fun btnFirstToSecond()

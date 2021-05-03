@@ -14,9 +14,6 @@ import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
 class MyStockNavigationFragment : BaseFragment<FragmentMyStockBinding>(R.layout.fragment_my_stock) {
 
-    private val stockViewModel: StockViewModel by activityViewModels()
-    private val disposable = CompositeDisposable()
-
 
     private lateinit var callback: OnBackPressedCallback
 

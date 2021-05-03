@@ -5,10 +5,14 @@
     <string name="bullish_market">상승장</string>
     <string name="bearish_market">하락장</string>
     <string name="account_balance">계좌 잔고</string>
-    
+    <string name="add">추가</string>
+    <string name="remove">삭제</string>
+
+
     <string-array name="list_tab">
         <item>잔고</item>
         <item>추가 매수</item>
     </string-array>
+
 
 </resources>
