@@ -27,5 +27,11 @@ class StockViewModel : ViewModel() {
         _stockList.value = stockList
     }
 
+    fun btnAddClick()
+    {
+
+    }
+
+
 
 }
