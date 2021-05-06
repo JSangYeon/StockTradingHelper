@@ -11,13 +11,11 @@ class ThirdScreen : BaseFragment<FragmentThirdScreenBinding>(R.layout.fragment_t
         thirdScreen = this@ThirdScreen
     }
 
-    fun btnThirdToFirst()
-    {
+    fun btnThirdToFirst() {
         view?.let { Navigation.findNavController(it).navigate(R.id.action_third_screen_to_my_stock_balance) }
     }
 
-    fun btnThirdToSecond()
-    {
+    fun btnThirdToSecond() {
         view?.let { Navigation.findNavController(it).navigate(R.id.action_third_screen_to_second_screen) }
     }
 

@@ -32,10 +32,8 @@ interface StockDao {
     @Query("Update stock set account = :account where id = :id")
     fun updateStockAccount(id: Long, account: Int) : Completable
 
-
     @Delete
     fun delete(stock: Stock) : Completable
-
 
     @Query("DELETE from stock")
     fun deleteAll(): Single<Int>

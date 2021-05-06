@@ -22,7 +22,7 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
         firstScreen = this@MyStockBalance
         stockViewModel = _stockViewModel
 
-        val stockAdapter = StockAccountBalanceAdapter(_stockViewModel, disposable )
+        val stockAdapter = StockAccountBalanceAdapter(_stockViewModel, disposable)
 
         val stockDB = StockDB.getInstance(requireContext())!!
 
@@ -42,7 +42,7 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
         }
 
         lifecycleOwner?.let {
-            stockDB.stockDao().getAll().observe(it){ stockList->
+            stockDB.stockDao().getAll().observe(it) { stockList ->
                 _stockViewModel.setStockList(ArrayList(stockList))
                 rvStockAccountBalance.adapter?.notifyDataSetChanged()
 
@@ -51,18 +51,14 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
         }
 
 
+    }
 
 
-   }
-
-
-    fun btnFirstToSecond()
-    {
+    fun btnFirstToSecond() {
         view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_second_screen) }
     }
 
-    fun btnFirstToThird()
-    {
+    fun btnFirstToThird() {
         view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_third_screen) }
     }
 

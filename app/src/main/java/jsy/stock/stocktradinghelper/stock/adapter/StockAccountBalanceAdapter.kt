@@ -15,8 +15,8 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
         RecyclerView.Adapter<StockAccountBalanceAdapter.Holder>() {
 
     private val tag = "StockAccountBalanceAdapter"
-    private lateinit var parentViewGroup : ViewGroup
-    private lateinit var stockList : ArrayList<Stock>
+    private lateinit var parentViewGroup: ViewGroup
+    private lateinit var stockList: ArrayList<Stock>
     private lateinit var parentLifecycleOwner: LifecycleOwner
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockAccountBalanceAdapter.Holder {
@@ -39,7 +39,7 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
     override fun onBindViewHolder(holder: StockAccountBalanceAdapter.Holder, position: Int) {
         holder.setIsRecyclable(false)
 
-        Log.d(tag,"onBindViewHolder")
+        Log.d(tag, "onBindViewHolder")
         holder.bind(position)
     }
 
@@ -47,8 +47,7 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
 
         var size = 0
 
-        if(_stockViewModel.stockList.value!=null)
-        {
+        if (_stockViewModel.stockList.value != null) {
             stockList = _stockViewModel.stockList.value!!
             size = stockList.size
         }
@@ -59,7 +58,7 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
 
     inner class Holder(private var binding: ItemStockAccountBalanceBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(position:Int){
+        fun bind(position: Int) {
 
             val stock = _stockViewModel.stockList.value!![position]
 
@@ -69,19 +68,16 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
                 tvStockAveragePrice.text = stock.averagePrice.toString()
                 tvStockAccount.text = stock.account.toString()
 
-                btnReviseStock.setOnClickListener{
+                btnReviseStock.setOnClickListener {
                     _stockViewModel.reviseDialog(root, stock)
                 }
 
-                btnRemoveStock.setOnClickListener{
+                btnRemoveStock.setOnClickListener {
                     _stockViewModel.removeDialog(root, stock)
                 }
             }
         }
     }
-
-
-
 
 
 }

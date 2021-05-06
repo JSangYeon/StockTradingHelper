@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 /* StockDB.kt */
 
 @Database(entities = [Stock::class], version = 1)
-abstract class StockDB: RoomDatabase() {
+abstract class StockDB : RoomDatabase() {
     abstract fun stockDao(): StockDao
 
     companion object {
@@ -19,9 +19,9 @@ abstract class StockDB: RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(StockDB::class) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        StockDB::class.java, "stock.db")
-                        .fallbackToDestructiveMigration()
-                        .build()
+                            StockDB::class.java, "stock.db")
+                            .fallbackToDestructiveMigration()
+                            .build()
                 }
             }
             return INSTANCE
