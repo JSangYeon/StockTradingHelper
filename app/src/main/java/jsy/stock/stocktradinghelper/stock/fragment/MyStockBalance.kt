@@ -45,17 +45,14 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
             stockDB.stockDao().getAll().observe(it) { stockList ->
                 _stockViewModel.setStockList(ArrayList(stockList))
                 rvStockAccountBalance.adapter?.notifyDataSetChanged()
-
             }
-
         }
-
 
     }
 
 
     fun btnFirstToSecond() {
-        view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_second_screen) }
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_add_buyouts) }
     }
 
     fun btnFirstToThird() {

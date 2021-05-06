@@ -38,7 +38,4 @@ class MyStockNavigationFragment : BaseFragment<FragmentMyStockBinding>(R.layout.
         callback.remove()
     }
 
-    fun btnClick() {
-        TODO("네비게이션 구현 필요")
-    }
 }

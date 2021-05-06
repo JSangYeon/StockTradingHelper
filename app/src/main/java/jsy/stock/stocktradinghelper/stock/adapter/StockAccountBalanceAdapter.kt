@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.databinding.ItemStockAccountBalanceBinding
 import jsy.stock.stocktradinghelper.room.Stock
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
@@ -74,6 +76,11 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
 
                 btnRemoveStock.setOnClickListener {
                     _stockViewModel.removeDialog(root, stock)
+                }
+
+                btnAddBuyouts.setOnClickListener() {
+                    _stockViewModel.setPosition(position)
+                    Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_add_buyouts)
                 }
             }
         }

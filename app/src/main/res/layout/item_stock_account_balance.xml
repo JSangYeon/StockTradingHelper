@@ -85,5 +85,14 @@
             app:layout_constraintStart_toEndOf="@id/btn_revise_stock"
             app:layout_constraintTop_toTopOf="@id/btn_revise_stock" />
 
+        <Button
+            android:id="@+id/btn_add_buyouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/add_buyouts"
+            app:layout_constraintStart_toEndOf="@id/btn_remove_stock"
+            app:layout_constraintTop_toTopOf="@id/btn_remove_stock" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

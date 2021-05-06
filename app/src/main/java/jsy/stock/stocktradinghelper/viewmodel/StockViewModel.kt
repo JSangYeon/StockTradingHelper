@@ -20,6 +20,7 @@ class StockViewModel : ViewModel() {
 
     private val _stockList = MutableLiveData<ArrayList<Stock>>()
     private lateinit var stockDB: StockDB
+    private var position = 0
 
     val stockList: LiveData<ArrayList<Stock>>
         get() = _stockList
@@ -36,6 +37,12 @@ class StockViewModel : ViewModel() {
         _stockList.value = stockList
     }
 
+    fun setPosition(position: Int)
+    {
+        this.position = position
+    }
+
+    fun getPosition() : Int = position
 
     private val disposable = CompositeDisposable()
 

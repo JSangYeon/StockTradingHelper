@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="addBuyout"
+            type="jsy.stock.stocktradinghelper.stock.fragment.AddBuyoutFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:text="@string/add_buyouts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_type_stock_price_trends"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price"/>
+
+            <RadioButton
+                android:id="@+id/rb_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/percent" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_percent_stock_price_trends"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/rg_type_stock_price_trends"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_percent_bullish_market"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bullish_market"/>
+
+            <RadioButton
+                android:id="@+id/rb_percent_bearish_market"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/bearish_market" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_add_buyouts_price_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:hint="dnkafnlaksdnkfl"
+            app:layout_constraintTop_toBottomOf="@id/rg_percent_stock_price_trends"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_second_to_first"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:onClick="@{()->secondScreen.btnSecondToFirst()}"-->
+<!--            android:text="2->1"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv_title" />-->
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
