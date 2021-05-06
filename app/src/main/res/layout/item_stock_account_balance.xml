@@ -5,48 +5,77 @@
         <variable
             name="viewModel"
             type="jsy.stock.stocktradinghelper.viewmodel.StockViewModel" />
-
-        <variable
-            name="viewName"
-            type="androidx.databinding.ObservableField&lt;String&gt;" />
-
-        <variable
-            name="viewPrice"
-            type="androidx.databinding.ObservableField&lt;String&gt;" />
-
-
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/stock_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/tv_stock_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{viewName}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_name"/>
 
         <TextView
-            android:id="@+id/tv_price"
+            android:id="@+id/tv_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewPrice}"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@id/tv_stock_name"
-            app:layout_constraintTop_toTopOf="@id/tv_stock_name"
+            android:layout_marginTop="10dp"
+            android:text="@string/stock_account"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"
             />
 
-        <Button
-            android:id="@+id/btn_add_stock"
+        <TextView
+            android:id="@+id/tv_stock_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add"
-            app:layout_constraintTop_toBottomOf="@id/tv_stock_name"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@id/tv_account"
+            app:layout_constraintStart_toEndOf="@id/tv_account"
+
+            />
+        <TextView
+            android:id="@+id/tv_average_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/stock_average_price"
+            app:layout_constraintTop_toBottomOf="@id/tv_account"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_stock_average_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@id/tv_average_price"
+            app:layout_constraintStart_toEndOf="@id/tv_average_price"
+            />
+
+
+        <Button
+            android:id="@+id/btn_revise_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/revise"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_average_price"
             app:layout_constraintStart_toStartOf="parent"
             />
 
@@ -56,8 +85,8 @@
             android:layout_height="wrap_content"
             android:text="@string/remove"
             android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_stock_name"
-            app:layout_constraintStart_toEndOf="@id/btn_add_stock"
+            app:layout_constraintTop_toTopOf="@id/btn_revise_stock"
+            app:layout_constraintStart_toEndOf="@id/btn_revise_stock"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

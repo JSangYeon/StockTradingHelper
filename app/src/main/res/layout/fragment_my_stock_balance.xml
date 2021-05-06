@@ -6,11 +6,16 @@
         <variable
             name="firstScreen"
             type="jsy.stock.stocktradinghelper.stock.fragment.MyStockBalance"/>
+
+        <variable
+            name="stockViewModel"
+            type="jsy.stock.stocktradinghelper.viewmodel.StockViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <Button
             android:id="@+id/btn_first_to_second"
@@ -30,6 +35,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_first_to_second"/>
 
+        <Button
+            android:id="@+id/btn_add_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_stock"
+            android:onClick="@{stockViewModel::btnAddStock}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_first_to_third"/>
+
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -40,9 +54,10 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_first_to_third"
+            app:layout_constraintTop_toBottomOf="@id/btn_add_stock"
             app:layout_constraintBottom_toBottomOf="parent"
             />
+
 
 
 

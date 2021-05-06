@@ -1,13 +1,18 @@
 <resources>
     <string name="app_name">StockTradingHelper</string>
 
-    <string name="price">단가</string>
     <string name="bullish_market">상승장</string>
     <string name="bearish_market">하락장</string>
     <string name="account_balance">계좌 잔고</string>
-    <string name="add">추가</string>
+    <string name="revise">수정</string>
     <string name="remove">삭제</string>
 
+    <string name="add_stock">종목 추가</string>
+
+    <string name="stock_name">주식 명</string>
+    <string name="stock_average_price">평균단가</string>
+    <string name="stock_account">주식 수</string>
+    <string name="stock_ask_remove">삭제하시겠습니까?</string>
 
     <string-array name="list_tab">
         <item>잔고</item>

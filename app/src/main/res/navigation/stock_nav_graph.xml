@@ -8,7 +8,7 @@
         android:id="@+id/my_stock_balance"
         android:name="jsy.stock.stocktradinghelper.stock.fragment.MyStockBalance"
         android:label="My Stock Balance"
-        tools:layout="@layout/fragment_first_screen">
+        tools:layout="@layout/fragment_my_stock_balance">
 
         <action android:id="@+id/action_my_stock_balance_to_second_screen"
             app:destination="@id/second_screen"
@@ -30,7 +30,7 @@
         android:id="@+id/second_screen"
         android:name="jsy.stock.stocktradinghelper.stock.fragment.SecondScreen"
         android:label="Second screen"
-        tools:layout="@layout/fragment_first_screen">
+        tools:layout="@layout/fragment_my_stock_balance">
 
         <action android:id="@+id/action_second_screen_to_my_stock_balance"
             app:destination="@id/my_stock_balance"

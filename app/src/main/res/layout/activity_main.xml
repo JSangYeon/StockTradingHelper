@@ -29,7 +29,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_price"
+            android:id="@+id/tv_stock_average_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{stockViewModel.text}"

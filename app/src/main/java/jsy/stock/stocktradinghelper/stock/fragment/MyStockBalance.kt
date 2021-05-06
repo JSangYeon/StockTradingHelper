@@ -1,36 +1,32 @@
 package jsy.stock.stocktradinghelper.stock.fragment
 
-import android.util.Log
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseFragment
-import jsy.stock.stocktradinghelper.databinding.FragmentFirstScreenBinding
-import jsy.stock.stocktradinghelper.function.whenNotNull
+import jsy.stock.stocktradinghelper.databinding.FragmentMyStockBalanceBinding
 import jsy.stock.stocktradinghelper.room.StockDB
 import jsy.stock.stocktradinghelper.stock.adapter.StockAccountBalanceAdapter
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
-class MyStockBalance : BaseFragment<FragmentFirstScreenBinding>(R.layout.fragment_first_screen) {
+class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.fragment_my_stock_balance) {
 
     private val _stockViewModel: StockViewModel by activityViewModels()
     private val disposable = CompositeDisposable()
 
-
-    override fun FragmentFirstScreenBinding.init() {
+    override fun FragmentMyStockBalanceBinding.init() {
 
         firstScreen = this@MyStockBalance
+        stockViewModel = _stockViewModel
 
-        val stockAdapter = StockAccountBalanceAdapter(_stockViewModel)
+        val stockAdapter = StockAccountBalanceAdapter(_stockViewModel, disposable )
 
         val stockDB = StockDB.getInstance(requireContext())!!
+
+        _stockViewModel.setStockDB(stockDB)
 
         rvStockAccountBalance.apply {
             layoutManager = LinearLayoutManager(context).apply {
@@ -45,17 +41,17 @@ class MyStockBalance : BaseFragment<FragmentFirstScreenBinding>(R.layout.fragmen
             adapter = stockAdapter
         }
 
+        lifecycleOwner?.let {
+            stockDB.stockDao().getAll().observe(it){ stockList->
+                _stockViewModel.setStockList(ArrayList(stockList))
+                rvStockAccountBalance.adapter?.notifyDataSetChanged()
 
-        disposable.add(
-                stockDB.stockDao().getAll()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({
-                            _stockViewModel.setStockList(it)
-                            rvStockAccountBalance.adapter?.notifyDataSetChanged()
-                        },
-                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
-        )
+            }
+
+        }
+
+
+
 
    }
 
