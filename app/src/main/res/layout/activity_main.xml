@@ -31,7 +31,6 @@
             android:id="@+id/tv_stock_average_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stockViewModel.text}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -25,13 +25,6 @@ class StockViewModel : ViewModel() {
     val stockList: LiveData<ArrayList<Stock>>
         get() = _stockList
 
-    val text = MutableLiveData<CharSequence>().apply {
-        value = "Hello World2"
-    }
-
-    fun getText(): String {
-        return text.value.toString()
-    }
 
     fun setStockList(stockList: ArrayList<Stock>) {
         _stockList.value = stockList
@@ -42,7 +35,7 @@ class StockViewModel : ViewModel() {
         this.position = position
     }
 
-    fun getPosition() : Int = position
+    fun getStock() : Stock = _stockList.value!![position]
 
     private val disposable = CompositeDisposable()
 

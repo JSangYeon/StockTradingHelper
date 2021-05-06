@@ -28,7 +28,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
 
     fun stockBtnOnClick() {
-        Log.d("btnClick", "test")
         // 화면 전환 프래그먼트 선언 및 초기 화면 설정
 //        supportFragmentManager.beginTransaction().add(R.id.fl_stock, MyStockFragment()).commit()
     }

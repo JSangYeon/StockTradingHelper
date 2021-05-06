@@ -3,7 +3,6 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="addBuyout"
             type="jsy.stock.stocktradinghelper.stock.fragment.AddBuyoutFragment" />
@@ -26,31 +25,6 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <RadioGroup
-            android:id="@+id/rg_type_stock_price_trends"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            >
-
-            <RadioButton
-                android:id="@+id/rb_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/price"/>
-
-            <RadioButton
-                android:id="@+id/rb_percent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/percent" />
-
-        </RadioGroup>
 
         <RadioGroup
             android:id="@+id/rg_percent_stock_price_trends"
@@ -58,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/rg_type_stock_price_trends"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             >
@@ -78,14 +52,79 @@
 
         </RadioGroup>
 
-        <EditText
-            android:id="@+id/et_add_buyouts_price_percent"
+        <TextView
+            android:id="@+id/tv_average_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:hint="dnkafnlaksdnkfl"
+            android:text="@string/stock_average_price"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rg_percent_stock_price_trends"
-            app:layout_constraintStart_toStartOf="parent"/>
+            />
+
+
+        <TextView
+            android:id="@+id/tv_stock_average_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_average_price"
+            app:layout_constraintTop_toTopOf="@id/tv_average_price"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_fire_add_buyouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fire_add_buyouts"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_average_price"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_fire_add_buyouts_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_fire_add_buyouts"
+            app:layout_constraintTop_toTopOf="@id/tv_fire_add_buyouts"
+            />
+
+        <TextView
+            android:id="@+id/tv_water_add_buyouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/water_add_buyouts"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_fire_add_buyouts"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_water_add_buyouts_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_water_add_buyouts"
+            app:layout_constraintTop_toTopOf="@id/tv_water_add_buyouts"
+            />
+
+
+        <!--        <EditText-->
+<!--            android:id="@+id/et_add_buyouts_price_percent"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:hint="dnkafnlaksdnkfl"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/rg_percent_stock_price_trends"-->
+<!--            app:layout_constraintStart_toStartOf="parent"/>-->
+
 
 
 <!--        <Button-->
