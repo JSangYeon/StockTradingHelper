@@ -14,31 +14,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bullish_fire"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_fire"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_fire"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_fire" />
 
         <EditText
             android:id="@+id/et_setting_bullish_fire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/bullish_fire"
             android:layout_marginStart="20dp"
+            android:hint="@string/bullish_fire"
+            android:inputType="number"
             app:layout_constraintStart_toEndOf="@id/tv_setting_bullish_fire"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_setting_bullish_fire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/check"
             android:layout_marginStart="10dp"
+            android:text="@string/check"
+            app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_fire"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_fire"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_fire"
-            app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_fire" />
+            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_fire" />
 
 
         <TextView
@@ -46,34 +44,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bullish_water"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_water"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_water"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_water" />
 
         <EditText
             android:id="@+id/et_setting_bullish_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/bullish_water"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/bullish_water"
+            android:inputType="number"
             app:layout_constraintStart_toEndOf="@id/tv_setting_bullish_water"
-            app:layout_constraintTop_toBottomOf="@id/et_setting_bullish_fire"
-            />
+            app:layout_constraintTop_toBottomOf="@id/et_setting_bullish_fire" />
 
         <Button
             android:id="@+id/btn_setting_bullish_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/check"
             android:layout_marginStart="10dp"
+            android:text="@string/check"
+            app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_water"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_water"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_water"
-            app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_water" />
-
-
+            app:layout_constraintTop_toTopOf="@id/et_setting_bullish_water" />
 
 
         <TextView
@@ -81,33 +75,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bearish_fire"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_fire"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_fire"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_fire" />
 
         <EditText
             android:id="@+id/et_setting_bearish_fire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/bearish_fire"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/bearish_fire"
+            android:inputType="number"
             app:layout_constraintStart_toEndOf="@id/tv_setting_bearish_fire"
-            app:layout_constraintTop_toBottomOf="@id/et_setting_bullish_water"
-            />
+            app:layout_constraintTop_toBottomOf="@id/et_setting_bullish_water" />
 
         <Button
             android:id="@+id/btn_setting_bearish_fire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/check"
             android:layout_marginStart="10dp"
+            android:text="@string/check"
+            app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_fire"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_water"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_fire"
-            app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_fire" />
-
+            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_fire" />
 
 
         <TextView
@@ -115,32 +106,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bearish_water"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_water"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_water"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_water" />
 
         <EditText
             android:id="@+id/et_setting_bearish_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/bearish_water"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/bearish_water"
+            android:inputType="number"
             app:layout_constraintStart_toEndOf="@id/tv_setting_bearish_water"
-            app:layout_constraintTop_toBottomOf="@id/et_setting_bearish_fire"
-            />
+            app:layout_constraintTop_toBottomOf="@id/et_setting_bearish_fire" />
 
         <Button
             android:id="@+id/btn_setting_bearish_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/check"
             android:layout_marginStart="10dp"
+            android:text="@string/check"
+            app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_water"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_water"
-            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_water"
-            app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_water" />
+            app:layout_constraintTop_toTopOf="@id/et_setting_bearish_water" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
