@@ -109,10 +109,10 @@ class StockViewModel : ViewModel() {
 
 
     fun btnAddStock(view: View) {
+
         val dialogBinding = CustomDialogStockAddBinding.inflate(LayoutInflater.from(view.context))
 
         val builder = AlertDialog.Builder(view.context)
-
 
         dialogBinding.apply {
             builder.setView(dialogBinding.root)

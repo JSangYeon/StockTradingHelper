@@ -28,9 +28,7 @@ class AddBuyoutFragment : BaseFragment<FragmentAddBuyoutsBinding>(R.layout.fragm
     override fun FragmentAddBuyoutsBinding.init() {
         addBuyout = this@AddBuyoutFragment
 
-
         binding.apply {
-
             rgPercentStockPriceTrends.setOnCheckedChangeListener(onCheckedChangeListener)
             sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE) ?: return
             stock = _stockViewModel.getStock()

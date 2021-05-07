@@ -8,6 +8,13 @@
     <string name="remove">삭제</string>
     <string name="add_buyouts">추가 매수</string>
 
+    <string name="bullish_fire">상승장 불타기</string>
+    <string name="bullish_water">상승장 물타기</string>
+    <string name="bearish_fire">하락장 불타기</string>
+    <string name="bearish_water">하락장 물타기</string>
+
+    <string name="check">확인</string>
+
     <string name="fire_add_buyouts">불타기</string>
     <string name="water_add_buyouts">물타기</string>
 
