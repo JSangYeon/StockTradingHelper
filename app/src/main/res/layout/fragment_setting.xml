@@ -2,6 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="settingFragment"
+            type="jsy.stock.stocktradinghelper.stock.fragment.SettingFragment" />
+
+        <variable
+            name="settingViewModel"
+            type="jsy.stock.stocktradinghelper.viewmodel.SettingViewModel" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:onClick="@{()->settingFragment.btnSettingBullishFire()}"
             android:text="@string/check"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_fire"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_fire"
@@ -64,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:onClick="@{()->settingFragment.btnSettingBullishWater()}"
             android:text="@string/check"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bullish_water"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_water"
@@ -95,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:onClick="@{()->settingFragment.btnSettingBearishFire()}"
             android:text="@string/check"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_fire"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_water"
@@ -126,6 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:onClick="@{()->settingFragment.btnSettingBearishWater()}"
             android:text="@string/check"
             app:layout_constraintBottom_toBottomOf="@id/et_setting_bearish_water"
             app:layout_constraintStart_toEndOf="@id/et_setting_bullish_water"
