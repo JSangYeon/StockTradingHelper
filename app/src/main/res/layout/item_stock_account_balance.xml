@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="stockViewModel"
             type="jsy.stock.stocktradinghelper.viewmodel.StockViewModel" />
     </data>
 

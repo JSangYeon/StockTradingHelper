@@ -24,9 +24,9 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
 
 
         binding.apply {
-
             settingFragment = this@SettingFragment
             sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE) ?: return
+            settingViewModel = _settingViewModel
 
             initText()
 
@@ -35,10 +35,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
     }
 
     private fun initText(){
-        binding.etSettingBullishFire.setText(sharedPreferences.getInt(PercentOption.BullishFireAddBuyoutPercent.name, PercentOption.BullishFireAddBuyoutPercent.defaultValue).toString())
-        binding.etSettingBullishWater.setText(sharedPreferences.getInt(PercentOption.BullishWaterAddBuyoutPercent.name, PercentOption.BullishWaterAddBuyoutPercent.defaultValue).toString())
-        binding.etSettingBearishFire.setText(sharedPreferences.getInt(PercentOption.BearishFireAddBuyoutPercent.name, PercentOption.BearishFireAddBuyoutPercent.defaultValue).toString())
-        binding.etSettingBearishWater.setText(sharedPreferences.getInt(PercentOption.BearishWaterAddBuyoutPercent.name, PercentOption.BearishWaterAddBuyoutPercent.defaultValue).toString())
+//        binding.etSettingBullishFire.setText(sharedPreferences.getInt(PercentOption.BullishFireAddBuyoutPercent.name, PercentOption.BullishFireAddBuyoutPercent.defaultValue).toString())
+//        binding.etSettingBullishWater.setText(sharedPreferences.getInt(PercentOption.BullishWaterAddBuyoutPercent.name, PercentOption.BullishWaterAddBuyoutPercent.defaultValue).toString())
+//        binding.etSettingBearishFire.setText(sharedPreferences.getInt(PercentOption.BearishFireAddBuyoutPercent.name, PercentOption.BearishFireAddBuyoutPercent.defaultValue).toString())
+//        binding.etSettingBearishWater.setText(sharedPreferences.getInt(PercentOption.BearishWaterAddBuyoutPercent.name, PercentOption.BearishWaterAddBuyoutPercent.defaultValue).toString())
     }
 
     fun btnSettingBullishFire(){

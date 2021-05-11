@@ -30,7 +30,7 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
                 parent,
                 false
         ).apply {
-            viewModel = _stockViewModel
+            stockViewModel = _stockViewModel
 
             Log.d(tag, "viewCreate")
             return Holder(this)

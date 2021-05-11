@@ -1,5 +1,8 @@
 package jsy.stock.stocktradinghelper.stock.activity
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -8,12 +11,14 @@ import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseActivity
 import jsy.stock.stocktradinghelper.databinding.ActivityMainBinding
 import jsy.stock.stocktradinghelper.stock.adapter.MainViewPagerAdapter
+import jsy.stock.stocktradinghelper.viewmodel.SettingViewModel
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val _stockViewModel: StockViewModel by viewModels()
+    private val _settingViewModel: SettingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +26,28 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             lifecycleOwner = this@MainActivity
             main = this@MainActivity
             stockViewModel = _stockViewModel
+
+            val pi = packageManager.getPackageInfo(packageName, 0)
+            Log.d("Main", "pi : $pi, pi.code : ${pi.longVersionCode}, pi.name : ${pi.versionName}")
+
+            val sharedPreferences = this@MainActivity.getPreferences(MODE_PRIVATE)
+
+            _settingViewModel.init(sharedPreferences)
+            val lastVersionCode = sharedPreferences.getLong("lastVersion",0)
+            if(lastVersionCode != pi.longVersionCode)
+            {
+                Log.d("Main","versionCode 갱신")
+
+                val editor = sharedPreferences.edit()
+                editor.putLong("lastVersion", pi.longVersionCode)
+                editor.apply()
+            }
+
+
+            Log.d("Main","lastVersionCode : $lastVersionCode")
+
+
+
             initView()
 
         }
