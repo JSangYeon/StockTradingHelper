@@ -48,10 +48,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
 
         if(value>=0)
         {
-            with(sharedPreferences.edit()) {
-            putInt(PercentOption.BullishFireAddBuyoutPercent.name, value)
-            commit()
-            }
+            _settingViewModel.setBullishFire(value)
         }
     }
 
@@ -63,11 +60,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
 
         if(value>=0)
         {
-            with(sharedPreferences.edit()) {
-                putInt(PercentOption.BullishWaterAddBuyoutPercent.name, value)
-                commit()
-            }
+
+            _settingViewModel.setBullishWater(value)
         }
+
     }
 
 
@@ -76,13 +72,9 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
 
         val value = binding.etSettingBearishFire.text.toString().toInt()
 
-        if(value>=0)
-        {
-            with(sharedPreferences.edit()) {
-                putInt(PercentOption.BearishFireAddBuyoutPercent.name, value)
-                commit()
-            }
-        }
+
+        if(value>=0) _settingViewModel.setBearishFire(value)
+
     }
 
     fun btnSettingBearishWater(){
@@ -90,13 +82,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
 
         val value = binding.etSettingBearishWater.text.toString().toInt()
 
-        if(value>=0)
-        {
-            with(sharedPreferences.edit()) {
-                putInt(PercentOption.BearishWaterAddBuyoutPercent.name, value)
-                commit()
-            }
-        }
+        if(value>=0) _settingViewModel.setBearishWater(value)
     }
 
 

@@ -15,6 +15,7 @@ import jsy.stock.stocktradinghelper.enums.MarketType
 import jsy.stock.stocktradinghelper.enums.PercentOption
 import jsy.stock.stocktradinghelper.room.Stock
 import jsy.stock.stocktradinghelper.viewmodel.MarketTypeViewModel
+import jsy.stock.stocktradinghelper.viewmodel.SettingViewModel
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
 
@@ -22,15 +23,15 @@ class AddBuyoutFragment : BaseFragment<FragmentAddBuyoutsBinding>(R.layout.fragm
 
     private val _stockViewModel: StockViewModel by activityViewModels()
     private val _marketTypeViewModel : MarketTypeViewModel by viewModels()
-    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var stock: Stock
+    private val _settingViewModel : SettingViewModel by activityViewModels()
+
 
     override fun FragmentAddBuyoutsBinding.init() {
         addBuyout = this@AddBuyoutFragment
 
         binding.apply {
             rgPercentStockPriceTrends.setOnCheckedChangeListener(onCheckedChangeListener)
-            sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE) ?: return
             stock = _stockViewModel.getStock()
             tvTitle.text = stock.stockName
             initPriceTextView(lifecycleOwner!!)
@@ -79,16 +80,16 @@ class AddBuyoutFragment : BaseFragment<FragmentAddBuyoutsBinding>(R.layout.fragm
 
 
 
-    private fun getSharedData(sharedPreferences: SharedPreferences, name: String, defaultValue : Int)
-    {
-//        val defaultValue = PercentOption.BearishFireAddBuyoutPercent.defaultValue
-
-//        with(sharedPreferences.edit()) {
-//            putInt(name, 9)
-//            commit()
-//        }
-
-    }
+//    private fun getSharedData(sharedPreferences: SharedPreferences, name: String, defaultValue : Int)
+//    {
+////        val defaultValue = PercentOption.BearishFireAddBuyoutPercent.defaultValue
+//
+////        with(sharedPreferences.edit()) {
+////            putInt(name, 9)
+////            commit()
+////        }
+//
+//    }
 
 
 
@@ -105,26 +106,33 @@ class AddBuyoutFragment : BaseFragment<FragmentAddBuyoutsBinding>(R.layout.fragm
 
             when (marketType!!) {
                 MarketType.Bullish -> {
-                    val firePercent = sharedPreferences.getInt(PercentOption.BullishFireAddBuyoutPercent.name, PercentOption.BullishFireAddBuyoutPercent.defaultValue)
-                    val waterPercent = sharedPreferences.getInt(PercentOption.BullishWaterAddBuyoutPercent.name, PercentOption.BullishWaterAddBuyoutPercent.defaultValue)
 
-                    firePrice = (stock.averagePrice * (1 + (firePercent.toFloat() / 100))).toInt()
-                    waterPrice = (stock.averagePrice * (1 - (waterPercent.toFloat() / 100))).toInt()
+                    _settingViewModel.bullishFire.observe(lifecycleOwner, {
+                        Log.d(tag,"bullishFire : $it")
+                        binding.tvFireAddBuyoutsPrice.text = (stock.averagePrice * (1 + (it.toFloat() / 100))).toInt().toString()
+                    })
+
+                    _settingViewModel.bullishWater.observe(lifecycleOwner, {
+                        Log.d(tag,"bullishWater : $it")
+                        binding.tvWaterAddBuyoutsPrice.text = (stock.averagePrice * (1 - (it.toFloat() / 100))).toInt().toString()
+                    })
 
                 }
 
                 MarketType.Bearlish -> {
-                    val firePercent = sharedPreferences.getInt(PercentOption.BearishFireAddBuyoutPercent.name, PercentOption.BearishFireAddBuyoutPercent.defaultValue)
-                    val waterPercent = sharedPreferences.getInt(PercentOption.BearishWaterAddBuyoutPercent.name, PercentOption.BearishWaterAddBuyoutPercent.defaultValue)
 
-                    firePrice = (stock.averagePrice * (1 + (firePercent.toFloat() / 100))).toInt()
-                    waterPrice = (stock.averagePrice * (1 - (waterPercent.toFloat() / 100))).toInt()
+                    _settingViewModel.bearishFire.observe(lifecycleOwner, {
+                        Log.d(tag,"bearishFire : $it")
+                        binding.tvFireAddBuyoutsPrice.text = (stock.averagePrice * (1 + (it.toFloat() / 100))).toInt().toString()
+                    })
 
+
+                    _settingViewModel.bearishWater.observe(lifecycleOwner, {
+                        Log.d(tag,"bearishWater : $it")
+                        binding.tvWaterAddBuyoutsPrice.text = (stock.averagePrice * (1 - (it.toFloat() / 100))).toInt().toString()
+                    })
                 }
             }
-
-            binding.tvFireAddBuyoutsPrice.text = firePrice.toString()
-            binding.tvWaterAddBuyoutsPrice.text = waterPrice.toString()
 
         })
     }
