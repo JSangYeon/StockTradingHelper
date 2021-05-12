@@ -4,6 +4,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseFragment
@@ -18,6 +20,7 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
     private val disposable = CompositeDisposable()
 
     override fun FragmentMyStockBalanceBinding.init() {
+        initAdMob()
 
         firstScreen = this@MyStockBalance
         stockViewModel = _stockViewModel
@@ -50,6 +53,11 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
 
     }
 
+    fun initAdMob(){
+        MobileAds.initialize(requireContext())
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+    }
 
     fun btnFirstToSecond() {
         view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_add_buyouts) }

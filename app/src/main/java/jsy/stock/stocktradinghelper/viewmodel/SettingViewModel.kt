@@ -30,10 +30,12 @@ class SettingViewModel : ViewModel() {
 
 
     fun setBullishFire(bullishFire: Int) {
+
         with(sharedPreferences.edit()) {
             putInt(PercentOption.BullishFireAddBuyoutPercent.name, bullishFire)
             commit()
         }
+
         _bullishFire.value = bullishFire
     }
 
@@ -53,6 +55,7 @@ class SettingViewModel : ViewModel() {
             putInt(PercentOption.BearishFireAddBuyoutPercent.name, bearishFire)
             commit()
         }
+
         _bearishFire.value = bearishFire
     }
 
@@ -62,6 +65,7 @@ class SettingViewModel : ViewModel() {
             putInt(PercentOption.BearishWaterAddBuyoutPercent.name, bearishWater)
             commit()
         }
+
         _bearishWater.value = bearishWater
     }
 
@@ -72,6 +76,5 @@ class SettingViewModel : ViewModel() {
         _bearishFire.value = sharedPreferences.getInt(PercentOption.BearishFireAddBuyoutPercent.name, PercentOption.BearishFireAddBuyoutPercent.defaultValue)
         _bearishWater.value = sharedPreferences.getInt(PercentOption.BearishWaterAddBuyoutPercent.name, PercentOption.BearishWaterAddBuyoutPercent.defaultValue)
     }
-
 
 }

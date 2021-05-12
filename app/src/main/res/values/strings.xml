@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">StockTradingHelper</string>
+    <string name="app_name">주식 평단 도우미</string>
+
+    <string name="adMob_app_id">ca-app-pub-1423291773426283~6135747835</string>
+    <string name="adMob_banner_release">ca-app-pub-1423291773426283/1203178874</string>
+    <string name="adMob_banner_test">ca-app-pub-3940256099942544/6300978111</string>
+
 
     <string name="bullish_market">상승장</string>
     <string name="bearish_market">하락장</string>

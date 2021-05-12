@@ -2,6 +2,7 @@ package jsy.stock.stocktradinghelper.stock.navigation.fragment
 
 import android.content.Context
 import androidx.activity.OnBackPressedCallback
+import androidx.compose.ui.window.isPopupLayout
 import androidx.navigation.Navigation
 import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseFragment
