@@ -4,12 +4,14 @@ import android.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.databinding.CustomDialogStockAddBinding
 import jsy.stock.stocktradinghelper.databinding.CustomDialogStockRemoveBinding
 import jsy.stock.stocktradinghelper.room.Stock
@@ -115,9 +117,9 @@ class StockViewModel : ViewModel() {
         val builder = AlertDialog.Builder(view.context)
 
         dialogBinding.apply {
+            tvDialogTitle.text = root.resources.getString(R.string.add_stock)
             builder.setView(dialogBinding.root)
                     .setPositiveButton("확인") { dialogInterface, i ->
-
                         if (etStockName.text.toString().isNotEmpty() || etStockAccount.text.toString().isNotEmpty() || etStockAveragePrice.text.toString().isNotEmpty()) {
                             val stock = Stock()
                             stock.stockName = etStockName.text.toString()

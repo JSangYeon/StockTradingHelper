@@ -17,13 +17,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_my_stock_balance_to_third_screen"
-            app:destination="@id/third_screen"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -41,35 +34,7 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
 
-        <action
-            android:id="@+id/action_add_buyouts_to_third_screen"
-            app:destination="@id/third_screen"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
-    <fragment
-        android:id="@+id/third_screen"
-        android:name="jsy.stock.stocktradinghelper.stock.fragment.ThirdScreen"
-        android:label="Italy screen"
-        tools:layout="@layout/fragment_third_screen">
-
-        <action
-            android:id="@+id/action_third_screen_to_my_stock_balance"
-            app:destination="@id/my_stock_balance"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_third_screen_to_second_screen"
-            app:destination="@id/add_buyouts"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
 
 </navigation>

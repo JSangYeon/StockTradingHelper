@@ -31,33 +31,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             Log.d("Main", "pi : $pi, pi.code : ${pi.longVersionCode}, pi.name : ${pi.versionName}")
 
             val sharedPreferences = this@MainActivity.getPreferences(MODE_PRIVATE)
-
             _settingViewModel.init(sharedPreferences)
-            val lastVersionCode = sharedPreferences.getLong("lastVersion",0)
-            if(lastVersionCode != pi.longVersionCode)
-            {
-                Log.d("Main","versionCode 갱신")
 
-                val editor = sharedPreferences.edit()
-                editor.putLong("lastVersion", pi.longVersionCode)
-                editor.apply()
-            }
-
-
-            Log.d("Main","lastVersionCode : $lastVersionCode")
-
-
+//            val lastVersionCode = sharedPreferences.getLong("lastVersion",0)
+//            if(lastVersionCode != pi.longVersionCode)
+//            {
+//                Log.d("Main","versionCode 갱신")
+//
+//                val editor = sharedPreferences.edit()
+//                editor.putLong("lastVersion", pi.longVersionCode)
+//                editor.apply()
+//            }
+//
+//
+//            Log.d("Main","lastVersionCode : $lastVersionCode")
 
             initView()
 
         }
     }
 
-
-    fun stockBtnOnClick() {
-        // 화면 전환 프래그먼트 선언 및 초기 화면 설정
-//        supportFragmentManager.beginTransaction().add(R.id.fl_stock, MyStockFragment()).commit()
-    }
 
     private fun initView() {
 

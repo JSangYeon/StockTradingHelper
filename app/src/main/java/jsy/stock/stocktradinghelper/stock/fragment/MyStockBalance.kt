@@ -59,13 +59,6 @@ class MyStockBalance : BaseFragment<FragmentMyStockBalanceBinding>(R.layout.frag
         binding.adView.loadAd(adRequest)
     }
 
-    fun btnFirstToSecond() {
-        view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_add_buyouts) }
-    }
-
-    fun btnFirstToThird() {
-        view?.let { Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_third_screen) }
-    }
 
 
 }
