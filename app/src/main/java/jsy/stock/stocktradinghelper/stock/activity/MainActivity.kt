@@ -1,8 +1,5 @@
 package jsy.stock.stocktradinghelper.stock.activity
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels

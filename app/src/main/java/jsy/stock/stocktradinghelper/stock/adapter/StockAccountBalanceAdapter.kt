@@ -13,22 +13,28 @@ import jsy.stock.stocktradinghelper.databinding.ItemStockAccountBalanceBinding
 import jsy.stock.stocktradinghelper.room.Stock
 import jsy.stock.stocktradinghelper.viewmodel.StockViewModel
 
-class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, private val disposable: CompositeDisposable) :
-        RecyclerView.Adapter<StockAccountBalanceAdapter.Holder>() {
+class StockAccountBalanceAdapter(
+    private val _stockViewModel: StockViewModel,
+    private val disposable: CompositeDisposable
+) :
+    RecyclerView.Adapter<StockAccountBalanceAdapter.Holder>() {
 
     private val tag = "StockAccountBalanceAdapter"
     private lateinit var parentViewGroup: ViewGroup
     private lateinit var stockList: ArrayList<Stock>
     private lateinit var parentLifecycleOwner: LifecycleOwner
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockAccountBalanceAdapter.Holder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): StockAccountBalanceAdapter.Holder {
         parentViewGroup = parent
 
         parentLifecycleOwner = parent.findViewTreeLifecycleOwner()!!
         ItemStockAccountBalanceBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         ).apply {
             stockViewModel = _stockViewModel
 
@@ -58,7 +64,8 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
     }
 
 
-    inner class Holder(private var binding: ItemStockAccountBalanceBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(private var binding: ItemStockAccountBalanceBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(position: Int) {
 
@@ -80,7 +87,8 @@ class StockAccountBalanceAdapter(private val _stockViewModel: StockViewModel, pr
 
                 btnAddBuyouts.setOnClickListener() {
                     _stockViewModel.setPosition(position)
-                    Navigation.findNavController(it).navigate(R.id.action_my_stock_balance_to_add_buyouts)
+                    Navigation.findNavController(it)
+                        .navigate(R.id.action_my_stock_balance_to_add_buyouts)
                 }
             }
         }

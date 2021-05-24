@@ -18,10 +18,12 @@ abstract class StockDB : RoomDatabase() {
         fun getInstance(context: Context): StockDB? {
             if (INSTANCE == null) {
                 synchronized(StockDB::class) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,
-                            StockDB::class.java, "stock.db")
-                            .fallbackToDestructiveMigration()
-                            .build()
+                    INSTANCE = Room.databaseBuilder(
+                        context.applicationContext,
+                        StockDB::class.java, "stock.db"
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
             }
             return INSTANCE

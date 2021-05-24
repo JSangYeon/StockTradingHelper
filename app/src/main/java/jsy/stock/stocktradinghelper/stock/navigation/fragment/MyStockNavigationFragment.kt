@@ -2,7 +2,6 @@ package jsy.stock.stocktradinghelper.stock.navigation.fragment
 
 import android.content.Context
 import androidx.activity.OnBackPressedCallback
-import androidx.compose.ui.window.isPopupLayout
 import androidx.navigation.Navigation
 import jsy.stock.stocktradinghelper.R
 import jsy.stock.stocktradinghelper.base.BaseFragment
@@ -25,7 +24,8 @@ class MyStockNavigationFragment : BaseFragment<FragmentMyStockBinding>(R.layout.
         super.onAttach(context)
         callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val controller = Navigation.findNavController(requireActivity(), R.id.my_nav_host_fragment)
+                val controller =
+                    Navigation.findNavController(requireActivity(), R.id.my_nav_host_fragment)
                 if (requireActivity() is OnBackPressedListener) (requireActivity() as OnBackPressedListener).onBackPressed()
                 else if (!controller.popBackStack())
                     requireActivity().finish()

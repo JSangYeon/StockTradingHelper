@@ -6,7 +6,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import jsy.stock.stocktradinghelper.stock.fragment.SettingFragment
 import jsy.stock.stocktradinghelper.stock.navigation.fragment.MyStockNavigationFragment
 
-class MainViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+class MainViewPagerAdapter(fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {

@@ -49,7 +49,7 @@ class SettingViewModel : ViewModel() {
         _bullishWater.value = bullishWater
     }
 
-    fun setBearishFire(bearishFire: Int){
+    fun setBearishFire(bearishFire: Int) {
 
         with(sharedPreferences.edit()) {
             putInt(PercentOption.BearishFireAddBuyoutPercent.name, bearishFire)
@@ -59,7 +59,7 @@ class SettingViewModel : ViewModel() {
         _bearishFire.value = bearishFire
     }
 
-    fun setBearishWater(bearishWater: Int){
+    fun setBearishWater(bearishWater: Int) {
 
         with(sharedPreferences.edit()) {
             putInt(PercentOption.BearishWaterAddBuyoutPercent.name, bearishWater)
@@ -71,10 +71,22 @@ class SettingViewModel : ViewModel() {
 
     fun init(sharedPreferences: SharedPreferences) {
         this.sharedPreferences = sharedPreferences
-        _bullishFire.value = sharedPreferences.getInt(PercentOption.BullishFireAddBuyoutPercent.name, PercentOption.BullishFireAddBuyoutPercent.defaultValue)
-        _bullishWater.value = sharedPreferences.getInt(PercentOption.BullishWaterAddBuyoutPercent.name, PercentOption.BullishWaterAddBuyoutPercent.defaultValue)
-        _bearishFire.value = sharedPreferences.getInt(PercentOption.BearishFireAddBuyoutPercent.name, PercentOption.BearishFireAddBuyoutPercent.defaultValue)
-        _bearishWater.value = sharedPreferences.getInt(PercentOption.BearishWaterAddBuyoutPercent.name, PercentOption.BearishWaterAddBuyoutPercent.defaultValue)
+        _bullishFire.value = sharedPreferences.getInt(
+            PercentOption.BullishFireAddBuyoutPercent.name,
+            PercentOption.BullishFireAddBuyoutPercent.defaultValue
+        )
+        _bullishWater.value = sharedPreferences.getInt(
+            PercentOption.BullishWaterAddBuyoutPercent.name,
+            PercentOption.BullishWaterAddBuyoutPercent.defaultValue
+        )
+        _bearishFire.value = sharedPreferences.getInt(
+            PercentOption.BearishFireAddBuyoutPercent.name,
+            PercentOption.BearishFireAddBuyoutPercent.defaultValue
+        )
+        _bearishWater.value = sharedPreferences.getInt(
+            PercentOption.BearishWaterAddBuyoutPercent.name,
+            PercentOption.BearishWaterAddBuyoutPercent.defaultValue
+        )
     }
 
 }

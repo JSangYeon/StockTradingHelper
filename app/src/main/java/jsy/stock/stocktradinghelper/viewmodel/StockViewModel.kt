@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,12 +31,11 @@ class StockViewModel : ViewModel() {
         _stockList.value = stockList
     }
 
-    fun setPosition(position: Int)
-    {
+    fun setPosition(position: Int) {
         this.position = position
     }
 
-    fun getStock() : Stock = _stockList.value!![position]
+    fun getStock(): Stock = _stockList.value!![position]
 
     private val disposable = CompositeDisposable()
 
@@ -47,65 +45,65 @@ class StockViewModel : ViewModel() {
 
     private fun stockInsert(stock: Stock) {
         disposable.add(
-                stockDB.stockDao().insert(stock)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({
-                            Log.d("stockDB", "success insert")
-                        },
-                                { error -> Log.e("stock deleteAll", "error : ${error.printStackTrace()}") })
+            stockDB.stockDao().insert(stock)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    Log.d("stockDB", "success insert")
+                },
+                    { error -> Log.e("stock deleteAll", "error : ${error.printStackTrace()}") })
         )
     }
 
     private fun stockUpdateName(id: Long, stockName: String) {
         disposable.add(
-                stockDB.stockDao().updateStockName(id, stockName)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ Log.d("stock", "success") },
-                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+            stockDB.stockDao().updateStockName(id, stockName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Log.d("stock", "success") },
+                    { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
     }
 
     private fun stockUpdatePrice(id: Long, price: Int) {
         disposable.add(
-                stockDB.stockDao().updateStockPrice(id, price)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ Log.d("stock", "success") },
-                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+            stockDB.stockDao().updateStockPrice(id, price)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Log.d("stock", "success") },
+                    { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
     }
 
     private fun stockUpdateAccount(id: Long, account: Int) {
         disposable.add(
-                stockDB.stockDao().updateStockAccount(id, account)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ Log.d("stock", "success") },
-                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+            stockDB.stockDao().updateStockAccount(id, account)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Log.d("stock", "success") },
+                    { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
     }
 
 
     private fun stockDeleteStock(stock: Stock) {
         disposable.add(
-                stockDB.stockDao().delete(stock)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ Log.d("stock", "success") },
-                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+            stockDB.stockDao().delete(stock)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Log.d("stock", "success") },
+                    { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
     }
 
 
     fun stockDeleteAll() {
         disposable.add(
-                stockDB.stockDao().deleteAll()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ Log.d("stock", "success") },
-                                { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
+            stockDB.stockDao().deleteAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Log.d("stock", "success") },
+                    { error -> Log.e("stock", "error : ${error.printStackTrace()}") })
         )
     }
 
@@ -119,21 +117,23 @@ class StockViewModel : ViewModel() {
         dialogBinding.apply {
             tvDialogTitle.text = root.resources.getString(R.string.add_stock)
             builder.setView(dialogBinding.root)
-                    .setPositiveButton("확인") { dialogInterface, i ->
-                        if (etStockName.text.toString().isNotEmpty() || etStockAccount.text.toString().isNotEmpty() || etStockAveragePrice.text.toString().isNotEmpty()) {
-                            val stock = Stock()
-                            stock.stockName = etStockName.text.toString()
-                            stock.account = etStockAccount.text.toString().toInt()
-                            stock.averagePrice = etStockAveragePrice.text.toString().toInt()
+                .setPositiveButton("확인") { dialogInterface, i ->
+                    if (etStockName.text.toString().isNotEmpty() || etStockAccount.text.toString()
+                            .isNotEmpty() || etStockAveragePrice.text.toString().isNotEmpty()
+                    ) {
+                        val stock = Stock()
+                        stock.stockName = etStockName.text.toString()
+                        stock.account = etStockAccount.text.toString().toInt()
+                        stock.averagePrice = etStockAveragePrice.text.toString().toInt()
 
-                            stockInsert(stock)
-                        }
-
+                        stockInsert(stock)
                     }
 
-                    .setNegativeButton("취소") { dialogInterface, i ->
+                }
 
-                    }.show()
+                .setNegativeButton("취소") { dialogInterface, i ->
+
+                }.show()
         }
     }
 
@@ -149,36 +149,45 @@ class StockViewModel : ViewModel() {
             etStockAccount.setText(stock.account.toString())
 
             builder.setView(dialogBinding.root)
-                    .setPositiveButton("확인") { dialogInterface, i ->
+                .setPositiveButton("확인") { dialogInterface, i ->
 
-                        if (etStockName.text.toString().isNotEmpty()) stockUpdateName(stock.id!!, etStockName.text.toString())
+                    if (etStockName.text.toString().isNotEmpty()) stockUpdateName(
+                        stock.id!!,
+                        etStockName.text.toString()
+                    )
 
-                        if (etStockAccount.text.toString().isNotEmpty()) stockUpdateAccount(stock.id!!, etStockAccount.text.toString().toInt())
+                    if (etStockAccount.text.toString().isNotEmpty()) stockUpdateAccount(
+                        stock.id!!,
+                        etStockAccount.text.toString().toInt()
+                    )
 
-                        if (etStockAveragePrice.text.toString().isNotEmpty()) stockUpdatePrice(stock.id!!, etStockAveragePrice.text.toString().toInt())
-                    }
+                    if (etStockAveragePrice.text.toString()
+                            .isNotEmpty()
+                    ) stockUpdatePrice(stock.id!!, etStockAveragePrice.text.toString().toInt())
+                }
 
-                    .setNegativeButton("취소") { dialogInterface, i ->
+                .setNegativeButton("취소") { dialogInterface, i ->
 
-                    }.show()
+                }.show()
         }
     }
 
 
     fun removeDialog(view: View, stock: Stock) {
-        val dialogBinding = CustomDialogStockRemoveBinding.inflate(LayoutInflater.from(view.context))
+        val dialogBinding =
+            CustomDialogStockRemoveBinding.inflate(LayoutInflater.from(view.context))
 
         val builder = AlertDialog.Builder(view.context)
 
         dialogBinding.apply {
             builder.setView(dialogBinding.root)
-                    .setPositiveButton("확인") { dialogInterface, i ->
-                        stockDeleteStock(stock)
-                    }
+                .setPositiveButton("확인") { dialogInterface, i ->
+                    stockDeleteStock(stock)
+                }
 
-                    .setNegativeButton("취소") { dialogInterface, i ->
+                .setNegativeButton("취소") { dialogInterface, i ->
 
-                    }.show()
+                }.show()
         }
 
     }

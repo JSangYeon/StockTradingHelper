@@ -1,6 +1,6 @@
 package jsy.stock.stocktradinghelper.enums
 
-enum class PercentOption(val defaultValue : Int) {
+enum class PercentOption(val defaultValue: Int) {
 
     BullishFireAddBuyoutPercent(5), // 상승장 불타기
     BullishWaterAddBuyoutPercent(5), // 상승장 물타기

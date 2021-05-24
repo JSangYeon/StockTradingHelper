@@ -1,7 +1,6 @@
 package jsy.stock.stocktradinghelper.stock.fragment
 
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
