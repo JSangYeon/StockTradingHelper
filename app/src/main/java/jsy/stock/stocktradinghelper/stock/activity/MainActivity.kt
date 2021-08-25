@@ -33,7 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 //            val lastVersionCode = sharedPreferences.getLong("lastVersion",0)
 //            if(lastVersionCode != pi.longVersionCode)
 //            {
-//                Log.d("Main","versionCode 갱신")
+//                 Log.d("Main","versionCode 갱신")
 //
 //                val editor = sharedPreferences.edit()
 //                editor.putLong("lastVersion", pi.longVersionCode)
@@ -48,10 +48,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
     }
 
-
     private fun initView() {
 
         initTab()
+
     }
 
 
